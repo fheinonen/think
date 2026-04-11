@@ -19,6 +19,8 @@ Invoke `/think`.
 Then do the simplest possible thing: dump the problem in one go.
 
 You do not need neat bullets. You do not need a plan. Fragments are fine.
+This works especially well with speech-to-text, whether that is your OS dictation,
+Wispr Flow, or a local speech-to-text model setup such as Handy for macOS.
 
 Example:
 
@@ -64,10 +66,6 @@ Sessions are stored as markdown files in `~/.thinking-sessions/`.
 - Breaking down a problem with too many moving parts
 - Capturing thoughts before they disappear
 - Turning vague concern into concrete next steps
-
-## Repo
-
-Published at `fheinonen/think`.
 
 ## License
 

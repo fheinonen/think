@@ -1,0 +1,27 @@
+# Local AI tool/workspace state
+.agents/
+.claude/
+.codex/
+.mcp.json
+executor.jsonc
+skills-lock.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+
+# Dependency / build artifacts
+node_modules/
+dist/
+build/
+coverage/

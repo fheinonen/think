@@ -6,7 +6,7 @@ description: >
   and action items. Use when asked to "think through something",
   "organize my thoughts", "brain dump", or "I need to work through a problem".
 metadata:
-  author: felix
+  author: Felix Heinonen
   version: "0.1.0"
 ---
 

@@ -1,10 +1,13 @@
 # Think
 
-`think` helps you get messy thoughts out of your head and into a useful shape.
+This repository contains two local skills for structured reasoning:
 
-It is for the moment when you have too many threads open at once, you do not
-want to structure them yet, and you need the AI to turn the dump into something
-you can work with.
+- `think` for turning a messy thought dump into a usable breakdown
+- `systemic-thinking` for analyzing a complex problem with explicit structure
+
+They solve different stages of the same general problem. `think` is for getting
+your thoughts out and organized. `systemic-thinking` is for disciplined
+analysis once the problem needs a more formal model.
 
 ## Install
 
@@ -12,15 +15,44 @@ you can work with.
 npx skills add fheinonen/think
 ```
 
-## First Use
+## Which Skill To Use
 
-Invoke `/think`.
+### Use `think` when
 
-Then do the simplest possible thing: dump the problem in one go.
+- you have too many threads open at once
+- you want to dump thoughts quickly without structuring them first
+- you need the AI to identify threads, open questions, and action items
+- you want to keep refining and save the session as markdown
 
-You do not need neat bullets. You do not need a plan. Fragments are fine.
-This works especially well with speech-to-text, whether that is your OS dictation,
-Wispr Flow, or a local speech-to-text model setup such as Handy for macOS.
+### Use `systemic-thinking` when
+
+- you want rigorous, explicitly structured analysis of the problem, models,
+  uncertainties, synthesis, and next steps
+- the problem has multiple interacting parts, actors, or constraints
+- the boundaries are unclear or several interpretations are plausible
+- you need assumptions, unknowns, and uncertainty separated explicitly
+
+## Side-by-Side Workflow
+
+### `think`
+
+`think` helps you get messy thoughts out of your head and into a useful shape.
+
+The workflow is simple:
+
+1. Dump everything in one go.
+2. The skill organizes it into a structured breakdown.
+3. Add more thoughts, dig deeper on a thread, or reframe it.
+4. Save when it looks right.
+
+The output focuses on:
+
+- a clear problem statement
+- distinct threads
+- open questions
+- concrete action items
+
+Sessions are stored as markdown files in `~/.thinking-sessions/`.
 
 Example:
 
@@ -33,39 +65,45 @@ rollback if DNS cutover fails. Running both environments in parallel could get
 expensive. I also do not know who owns the final go/no-go call.
 ```
 
-The skill will turn that into a breakdown with:
+### `systemic-thinking`
 
-- A clear problem statement
-- Distinct threads
-- Open questions you have not resolved yet
-- Action items you can actually do next
+`systemic-thinking` is for deeper analysis when the problem needs explicit
+reasoning structure.
 
-## What The Workflow Feels Like
+The skill works in two modes:
 
-1. You dump everything on your mind.
-2. `think` organizes it into a structured breakdown.
-3. You add more thoughts, ask to go deeper on one thread, or reframe it.
-4. When it looks right, you save the session.
+1. Analyze now, if missing context would not materially change the analysis.
+2. Clarify first, if missing context would change the plausible models,
+   eliminations, or recommended next steps.
 
-Sessions are stored as markdown files in `~/.thinking-sessions/`.
+It then produces a structured analysis covering:
+
+- problem restatement
+- small local notes
+- ontological, epistemic, and morphological analysis
+- MECE structure and semiotic analysis
+- eliminated options, plausible models, open questions, synthesis, and next
+  steps
+
+Use it when you want the agent to reason carefully rather than just organize a
+brain dump.
 
 ## Common Prompts
 
-- Start a session: "I need to think through something"
-- Continue dumping: add more thoughts after the first breakdown
-- Go deeper: "Expand thread 2"
-- Reframe: "Give me a different framing"
-- Save: "save"
-- List sessions: "List my thinking sessions"
-- Resume: "Continue the migration session"
-- Finish: "Mark the migration session as done"
+### `think`
 
-## What This Is Good For
+- "I need to think through something"
+- "Expand thread 2"
+- "Give me a different framing"
+- "Continue the migration session"
+- "List my thinking sessions"
 
-- Untangling a complex decision
-- Breaking down a problem with too many moving parts
-- Capturing thoughts before they disappear
-- Turning vague concern into concrete next steps
+### `systemic-thinking`
+
+- "Use systemic thinking to analyze this migration plan"
+- "Break this problem into local notes and map the unknowns"
+- "Analyze this using ontological, epistemic, and morphological lenses"
+- "Compare the plausible models and eliminate weak ones"
 
 ## License
 

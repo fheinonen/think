@@ -76,6 +76,9 @@ The skill works in two modes:
 2. Clarify first, if missing context would change the plausible models,
    eliminations, or recommended next steps.
 
+If your prompt already contains enough context, the skill analyzes it directly
+instead of re-asking for the problem.
+
 It then produces a structured analysis covering:
 
 - problem restatement
@@ -87,6 +90,12 @@ It then produces a structured analysis covering:
 
 Use it when you want the agent to reason carefully rather than just organize a
 brain dump.
+
+Systemic-thinking sessions can also be saved, listed, continued, and resolved.
+They are stored separately in `~/.thinking-sessions/systemic-thinking/`.
+
+When continuing a saved session, the skill first lets you inspect the existing
+analysis as-is, then revise it only if you add new context or request changes.
 
 ## Common Prompts
 
@@ -104,6 +113,11 @@ brain dump.
 - "Break this problem into local notes and map the unknowns"
 - "Analyze this using ontological, epistemic, and morphological lenses"
 - "Compare the plausible models and eliminate weak ones"
+- "Save this systemic-thinking session"
+- "List my systemic-thinking sessions"
+- "Continue the migration analysis session"
+- "Open the migration analysis session and show me the current model"
+- "Mark the migration analysis session as resolved"
 
 ## License
 

@@ -1,13 +1,17 @@
 # Think
 
-This repository contains two local skills for structured reasoning:
+This repository contains local skills for structured reasoning and coaching:
 
 - `think` for turning a messy thought dump into a usable breakdown
 - `systemic-thinking` for analyzing a complex problem with explicit structure
+- `engineering-judgment-coaching` for helping an engineer strengthen their
+  reasoning and recommendation quality through guided coaching
 
-They solve different stages of the same general problem. `think` is for getting
-your thoughts out and organized. `systemic-thinking` is for disciplined
-analysis once the problem needs a more formal model.
+They solve adjacent but different stages of the same general problem. `think`
+is for getting your thoughts out and organized. `systemic-thinking` is for
+disciplined analysis once the problem needs a more formal model.
+`engineering-judgment-coaching` is for improving how an engineer reasons
+through a recommendation, not just the quality of the analysis itself.
 
 ## Install
 
@@ -31,6 +35,14 @@ npx skills add fheinonen/think
 - the problem has multiple interacting parts, actors, or constraints
 - the boundaries are unclear or several interpretations are plausible
 - you need assumptions, unknowns, and uncertainty separated explicitly
+
+### Use `engineering-judgment-coaching` when
+
+- you want to mentor an engineer through a decision, investigation, or design
+  judgment
+- you want critique and revision, not just an answer
+- you want to strengthen framing, tradeoff awareness, prioritization, and
+  recommendation quality
 
 ## Side-by-Side Workflow
 
@@ -97,6 +109,18 @@ They are stored separately in `~/.thinking-sessions/systemic-thinking/`.
 When continuing a saved session, the skill first lets you inspect the existing
 analysis as-is, then revise it only if you add new context or request changes.
 
+### `engineering-judgment-coaching`
+
+`engineering-judgment-coaching` helps an engineer improve how they reason.
+
+The workflow is:
+
+1. State the situation, reasoning, and recommendation.
+2. Get critique on the biggest reasoning gaps.
+3. Revise the reasoning.
+4. Defend a clearer recommendation.
+5. End with one coaching takeaway for next time.
+
 ## Common Prompts
 
 ### `think`
@@ -118,6 +142,13 @@ analysis as-is, then revise it only if you add new context or request changes.
 - "Continue the migration analysis session"
 - "Open the migration analysis session and show me the current model"
 - "Mark the migration analysis session as resolved"
+
+### `engineering-judgment-coaching`
+
+- "Coach me through this decision like a senior engineer mentoring another engineer"
+- "Critique my reasoning and help me strengthen it before giving me the answer"
+- "Push back on my reasoning and make me defend a recommendation"
+- "Help me improve how I think through this, not just solve it for me"
 
 ## License
 

@@ -2,179 +2,210 @@
 
 ## Purpose
 
-Add a `business-decision-discovery` skill for pre-decision discovery. The skill
-helps an agent clarify a vague, high-stakes, or multi-stakeholder business
-decision before option evaluation begins. It should produce a structured
-discovery brief, not a recommendation.
+Add a lightweight `business-decision-discovery` skill that discovers the
+business decisions hidden inside requirements, rules, policies, workflows,
+specs, code, tickets, or stakeholder notes.
 
-The skill sits before `decision-system` in the workflow. It discovers whether
-there is a real decision to make, what business need and value are at stake,
-which stakeholders matter, what evidence exists, what is still unknown, and
-what discovery work is needed next.
+This skill is the missing middle layer between:
+
+- `business-requirements-extraction`: what the business needs
+- `business-rules-extraction`: what policies or constraints apply
+- `business-decision-discovery`: what question is answered, using which data
+  and rules, to produce which outcome
+
+The skill should not become a general strategic decision-making framework. Its
+job is to model operational business decisions clearly enough that they can
+drive implementation, QA, workflow automation, and stakeholder validation.
+
+## Mental Model
+
+Use this simple relationship:
+
+```text
+Requirement
+  -> Decision
+  -> Rules + Data
+  -> Outcome
+```
+
+Example:
+
+```text
+Requirement:
+Prevent unauthorized invoice payments.
+
+Decision:
+Determine invoice approval route.
+
+Data:
+Invoice amount, supplier risk, tax ID status, budget status.
+
+Rules:
+- If invoice > EUR 5,000, manager approval is required.
+- If supplier is high-risk, finance review is required.
+- If tax ID is missing, invoice cannot proceed.
+
+Outcome:
+Auto-approve, manager approval, finance review, or reject.
+```
 
 ## Scope
 
 In scope:
 
 - Create `skills/business-decision-discovery/SKILL.md`.
-- Update `README.md` so users can distinguish this skill from
-  `decision-system`, `business-requirements-extraction`, and
-  `business-rules-extraction`.
-- Ground the skill in established business decision and business analysis
-  practices.
-- Include a decision-readiness gate that classifies the situation as ready for
-  decision, needing targeted discovery, needing reframing, or needing a split or
-  deferral.
+- Update `README.md` to explain the requirements/rules/decisions distinction.
+- Keep the skill concise and practical.
+- Ground the skill in well-known decision modeling practice, especially
+  Decision Model and Notation (DMN), decision tables, and business rule
+  analysis.
+- Produce decision catalogs, decision tables, gaps, conflicts, and test
+  scenarios.
 
 Out of scope:
 
+- Do not create a heavyweight pre-decision strategy or executive decision
+  framework.
+- Do not recommend which business option to choose.
+- Do not duplicate `decision-system`.
+- Do not duplicate requirements or rule extraction beyond the minimum needed to
+  link decisions to requirements and rules.
 - Do not create scripts, assets, or reference files unless implementation shows
   a clear need.
-- Do not make the skill produce final recommendations by default.
-- Do not change existing business extraction or decision-system behavior.
-- Do not add agent UI metadata unless the repository pattern changes.
-
-## Positioning
-
-Use `business-decision-discovery` when the user needs to prepare a business
-decision before deciding. Examples include market entry, pricing, vendor choice,
-build/buy, operating model changes, major process changes, strategic
-prioritization, or other business choices where the frame and evidence are not
-yet stable.
-
-Use `decision-system` when the decision frame is ready enough to compare
-options and recommend a path.
-
-Use `business-requirements-extraction` when the goal is a requirements catalog.
-Use `business-rules-extraction` when the goal is a rule catalog.
 
 ## Grounding
 
-The skill should use the following practices as internal scaffolding:
+Use established decision modeling ideas as lightweight scaffolding:
 
-- IIBA/BACCM: analyze change, need, solution, stakeholder, value, and context.
-- Decision Quality: check frame, alternatives, information, values and
-  tradeoffs, reasoning readiness, and commitment to action.
-- Cynefin/OODA: classify the context as clear, complicated, complex, chaotic, or
-  confused and choose a matching discovery style.
-- WRAP: widen the frame, reality-test assumptions, attain distance, and prepare
-  to be wrong.
-- Kepner-Tregoe-style separation of must-have constraints from weighted wants.
-- Premortem and assumption testing: expose failure modes before committing to a
-  decision process.
+- Decision Model and Notation (DMN): represent operational business decisions,
+  required input data, supporting rules or knowledge, and decision logic.
+- Decision tables: map input conditions to outcomes using rows of rules.
+- Business rule analysis: keep rules separate from processes, UI behavior, and
+  implementation mechanisms.
+- Requirements traceability: link decisions back to the requirement or business
+  need they support.
 
-The skill should not require citations in ordinary use, but its instructions
-should name the practices so future agents understand the provenance of the
-workflow.
+The skill should not require formal DMN XML, FEEL expressions, or full decision
+requirements diagrams. Use plain Markdown tables unless the user asks for a
+formal notation.
 
 ## Workflow
 
 The skill should run this flow:
 
-1. **Scope the decision candidate.** Identify whether the user has provided a
-   decision, problem, proposed solution, research question, or conflict. If
-   source material is missing and materially needed, ask for it.
-2. **Map business context.** Capture change, need, stakeholder, value, solution
-   candidates, and operating context. Separate current state from desired
-   future state.
-3. **Identify roles and stakeholders.** Capture owner, decider, contributors,
-   approvers, implementers, affected stakeholders, blockers, and people to
-   inform.
-4. **Stabilize the frame.** Define the decision question, boundaries, timing,
-   stakes, must-have constraints, wants, success measures, assumptions,
-   unknowns, risks, dependencies, and reversibility.
-5. **Inventory evidence.** Separate authoritative, stakeholder, behavioral, and
-   speculative evidence. Record contradictions and missing evidence.
-6. **Choose discovery style.** Use context type:
-   - Clear: confirm facts and constraints quickly.
-   - Complicated: analyze and bring in expertise.
-   - Complex: run probes, interviews, experiments, and learning loops.
-   - Chaotic: recommend stabilization before discovery.
-   - Confused: decompose into smaller decision areas.
-7. **Build discovery backlog.** List questions, evidence to collect,
-   stakeholders to interview, analyses to run, experiments to perform, and
-   validation criteria.
-8. **Assess readiness.** Classify the decision as ready for `decision-system`,
-   needing targeted discovery, needing reframing, or needing split/defer. Give a
-   concise rationale and next action.
+1. **Scope the source material.** Identify the business domain, source material,
+   and intended use. If no source material is provided, ask for it.
+2. **Find candidate decisions.** Look for places where the business chooses an
+   outcome: approve/reject, route/escalate, price/discount, eligible/ineligible,
+   classify, prioritize, calculate, assign, notify, block, or permit.
+3. **Name each decision as a question.** Prefer clear phrases such as
+   "Determine invoice approval route" or "Is the customer eligible for renewal
+   discount?"
+4. **Identify possible outcomes.** Capture the finite outcomes the decision can
+   produce, including default and exception outcomes.
+5. **Identify required input data.** Capture the facts needed to make the
+   decision: amount, status, risk score, customer type, date, jurisdiction,
+   account state, product type, history, or other data.
+6. **Link supporting rules.** Group extracted or inferred business rules under
+   the decisions they support. Preserve rule IDs when available. Create local
+   temporary IDs when source rules are not already numbered.
+7. **Build decision logic.** Use a decision table, ordered rule list, or compact
+   pseudocode. Prefer decision tables when combinations of inputs produce
+   different outcomes.
+8. **Find gaps and conflicts.** Identify missing inputs, missing outcomes,
+   overlapping rules, contradictory rules, unclear precedence, ambiguous
+   thresholds, and unhandled cases.
+9. **Generate validation scenarios.** Produce concrete test cases for normal,
+   boundary, exception, conflict, and default cases.
 
 ## Output Format
 
-Default to a discovery brief:
+Default to this compact artifact:
 
 ```markdown
-# Business Decision Discovery: <topic>
+# Business Decision Discovery: <domain>
 
 ## Scope
-<decision candidate, intended use, source material, exclusions>
+<source material reviewed and intended use>
 
-## Source Inventory
-| Source | Evidence Level | Notes |
+## Decision Catalog
+| ID | Decision | Requirement / Need | Inputs | Outcomes | Rules Used | Confidence |
+|---|---|---|---|---|---|---|
+| DEC-001 | <decision question> | <REQ/source/need> | <input data> | <outcomes> | <rule IDs> | <high/medium/low> |
+
+## Decision Details
+
+### DEC-001: <decision question>
+
+**Purpose:** <business need this decision supports>
+
+**Inputs:**
+- <input name>: <meaning/source>
+
+**Outcomes:**
+- <outcome>: <meaning>
+
+**Rules Used:**
+- BR-001: <rule>
+
+**Decision Logic:**
+| Condition | Outcome | Rules |
 |---|---|---|
+| <condition> | <outcome> | <rule IDs> |
 
-## Business Context
-| Concept | Finding | Confidence |
-|---|---|---|
-| Change | ... | ... |
-| Need | ... | ... |
-| Stakeholders | ... | ... |
-| Value | ... | ... |
-| Solution Candidates | ... | ... |
-| Context | ... | ... |
+**Gaps And Conflicts:**
+- <gap, conflict, missing precedence, missing default, missing source>
 
-## Stakeholders And Roles
-| Stakeholder / Role | Interest | Influence | Needed From Them |
+**Validation Scenarios:**
+| Scenario | Input Data | Expected Outcome | Rules Tested |
 |---|---|---|---|
+| <case> | <data> | <outcome> | <rule IDs> |
 
-## Decision Frame
-| Element | Finding |
-|---|---|
-| Decision Question | ... |
-| Owner / Decider | ... |
-| Timing / Stakes | ... |
-| Must-Have Constraints | ... |
-| Wants / Criteria | ... |
-| Success Measures | ... |
-| Assumptions | ... |
-| Unknowns | ... |
-| Risks | ... |
-| Reversibility | ... |
-| Context Type | ... |
-
-## Option Space
-<visible options or option families to investigate, without recommendation>
-
-## Contradictions And Tensions
-| Topic | Tension | Sources | Discovery Needed |
+## Cross-Decision Issues
+| Issue | Affected Decisions | Why It Matters | Suggested Follow-Up |
 |---|---|---|---|
-
-## Discovery Backlog
-| Priority | Question / Activity | Method | Owner | Decision Impact |
-|---|---|---|---|---|
-
-## Readiness Assessment
-<ready for decision-system / targeted discovery needed / reframe needed / split or defer>
-
-## Handoff To Decision-System
-<what frame, criteria, evidence, and options should carry forward>
 ```
+
+When the source material contains many decisions, keep the catalog complete and
+provide detailed logic only for the decisions with enough evidence or highest
+importance.
 
 ## Quality Bar
 
 A good output:
 
-- does not recommend before the discovery frame is ready
-- separates decision, problem, proposed solution, and research question
-- makes stakeholders and decision ownership explicit
-- links value to stakeholder and context
-- distinguishes must-have constraints from wants
-- separates evidence from assumptions and unknowns
-- identifies contradictions instead of smoothing them over
-- scales discovery style to context and uncertainty
-- ends with a practical next discovery action or a handoff to `decision-system`
+- separates requirements, rules, decisions, data, and outcomes
+- names decisions as business questions or outcome selections
+- groups rules around the decision they support
+- makes required input data explicit
+- includes default and exception outcomes when discoverable
+- uses decision tables when they make logic easier to inspect
+- preserves source evidence and confidence
+- identifies unhandled cases, conflicts, and ambiguous precedence
+- generates validation scenarios that can become QA tests or stakeholder review
+  examples
+- stays lightweight and avoids strategic decision framework overhead
+
+## README Update
+
+Update the README with a short explanation:
+
+```text
+Requirement = what the business needs.
+Rule = what policy or constraint applies.
+Decision = what outcome must be chosen from rules and data.
+Decision table = how input combinations map to outcomes.
+Test scenario = how to verify the decision.
+```
+
+Also add `business-decision-discovery` to the skill list and side-by-side
+workflow section.
 
 ## Implementation Notes
 
-Keep the skill concise and similar in style to the existing repository skills.
-Use one `SKILL.md` file unless the body grows large enough to justify
-references. Avoid changing the existing skills except for README positioning.
+Follow the style of existing skills in this repository. A single `SKILL.md`
+file should be enough. The frontmatter description must trigger on terms like
+discover business decisions, decision tables, decision logic, input data,
+outcomes, group rules by decision, operational decision, approval route,
+eligibility decision, routing decision, pricing decision, and validation
+scenarios.

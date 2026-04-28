@@ -2,41 +2,17 @@
 
 This repository contains local skills for structured reasoning and coaching:
 
-## Skill Families
+## Skill Map
 
-### Thought Structuring
-
-- `think` for turning a messy thought dump into a usable breakdown
-
-### Systems Analysis
-
-- `systemic-thinking` for analyzing a complex problem with explicit structure
-
-### Decision Work
-
-- `decision-system` for challenging a decision premise, stabilizing the frame,
-  making a recommendation, and optionally producing a decision memo
-- `engineering-judgment-coaching` for helping an engineer strengthen their
-  reasoning and recommendation quality through guided coaching
-
-### Business Analysis
-
-| Layer | Skill | What It Does |
+| Family | Skill | Use For |
 |---|---|---|
-| Requirement | `business-requirements-extraction` | Extracts traceable business, stakeholder, solution, transition, and constraint requirements |
-| Rule | `business-rules-extraction` | Extracts auditable business rules from code, specs, policies, workflows, tickets, data, or conversations |
-| Decision | `business-decision-discovery` | Discovers operational business decisions, input data, outcomes, decision tables, and validation scenarios |
-
-They solve adjacent but different stages of the same general problem. `think`
-is for getting your thoughts out and organized. `systemic-thinking` is for
-disciplined analysis once the problem needs a more formal model.
-`decision-system` is for deciding what to do after challenging whether the
-stated premise is even the right one. `engineering-judgment-coaching` is for
-improving how an engineer reasons through a recommendation, not just the
-quality of the analysis itself. The business-analysis skills form a layer
-model: requirements describe the need, rules describe the constraint, and
-decision discovery groups them into the operational question, the inputs, the
-outcomes, and the validation logic.
+| Thought structuring | `think` | Turning a messy thought dump into a usable breakdown |
+| Systems analysis | `systemic-thinking` | Analyzing a complex problem with explicit structure |
+| Decision work | `decision-system` | Stress-testing a decision frame and making a recommendation |
+| Decision work | `engineering-judgment-coaching` | Improving the reasoning behind an engineering recommendation |
+| Business analysis | `business-requirements-extraction` | Extracting traceable business, stakeholder, solution, transition, and constraint requirements |
+| Business analysis | `business-rules-extraction` | Extracting auditable policies, constraints, calculations, validations, and exceptions |
+| Business analysis | `business-decision-discovery` | Discovering operational decisions, inputs, outcomes, decision tables, and validation scenarios |
 
 ## Business Analysis Model
 
@@ -50,91 +26,11 @@ The business-focused skills form a simple layer model:
 | Decision table | How is the outcome chosen? | If account is suspended, route to account review |
 | Test scenario | How do we verify it? | Suspended account request routes to account review |
 
-- `business-requirements-extraction` discovers the need, scope, stakeholders,
-  constraints, and acceptance criteria.
-- `business-rules-extraction` discovers policies, validations, calculations,
-  exceptions, and other explicit constraints.
-- `business-decision-discovery` discovers the operational decisions that rules
-  and requirements support, including the inputs, outcomes, decision logic, and
-  validation scenarios.
-
 ## Install
 
 ```bash
 npx skills add fheinonen/think
 ```
-
-## Which Skill To Use
-
-### Use `think` when
-
-- you have too many threads open at once
-- you want to dump thoughts quickly without structuring them first
-- you need the AI to identify threads, open questions, and action items
-- you want to keep refining and save the session as markdown
-
-### Use `systemic-thinking` when
-
-- you want rigorous, explicitly structured analysis of the problem, models,
-  uncertainties, synthesis, and next steps
-- the problem has multiple interacting parts, actors, or constraints
-- the boundaries are unclear or several interpretations are plausible
-- you need assumptions, unknowns, and uncertainty separated explicitly
-
-### Use `decision-system` when
-
-- you need to make, defer, split, or reject a decision
-- the stated premise may be wrong or too narrow
-- you want the agent to challenge the goal, framing, timing, constraints, and
-  assumptions before comparing options
-- you need explicit decision criteria, tradeoffs, reversibility, confidence,
-  and decision triggers
-- you want a recommendation that can later be turned into a decision memo
-
-### Use `engineering-judgment-coaching` when
-
-- you want to mentor an engineer through a decision, investigation, or design
-  judgment
-- you want critique and revision, not just an answer
-- you want to strengthen framing, tradeoff awareness, prioritization, and
-  recommendation quality
-
-### Use `business-rules-extraction` when
-
-- you need to reverse-engineer business rules from code, specs, policies,
-  tickets, workflows, spreadsheets, data, or stakeholder notes
-- you want a source-backed catalog of eligibility, validation, calculation,
-  workflow, authorization, compliance, data, notification, or decision rules
-- you need to separate explicit rules from inferred behavior, contradictions,
-  exceptions, and open validation questions
-- you want rules that can drive implementation, QA, migration, audit, or
-  stakeholder review
-
-### Use `business-decision-discovery` when
-
-- you need to discover the business decisions that requirements and rules
-  support
-- you want to group rules around decision questions such as approval route,
-  eligibility, pricing, classification, routing, assignment, or calculation
-- you need to identify input data, possible outcomes, default behavior, and
-  exception paths
-- you want decision tables or ordered logic that show how rules and data produce
-  outcomes
-- you want validation scenarios that can drive QA, workflow automation, or
-  stakeholder review
-
-### Use `business-requirements-extraction` when
-
-- you need to extract business, stakeholder, solution, transition, or constraint
-  requirements from interviews, workshops, tickets, specs, strategy docs,
-  workflows, data, feedback, or legacy systems
-- you want source-backed requirements with objectives, stakeholders, rationale,
-  priority, acceptance criteria, traceability, risks, assumptions, and open
-  questions
-- you need to separate needs from designs, tasks, business rules, ideas, and
-  unsupported stakeholder wishes
-- you want requirements that can drive a BRD, PRD, backlog, procurement, QA,
-  migration, audit, or stakeholder review
 
 ## Side-by-Side Workflow
 
@@ -258,6 +154,27 @@ The workflow is:
 4. Defend a clearer recommendation.
 5. End with one coaching takeaway for next time.
 
+### `business-requirements-extraction`
+
+`business-requirements-extraction` turns messy stakeholder, product, and
+operational evidence into a structured requirements catalog.
+
+The workflow is:
+
+1. Define scope, intended use, current state, future state, and constraints.
+2. Inventory source evidence such as interviews, workshops, tickets, specs,
+   strategy docs, workflows, feedback, analytics, code-adjacent evidence, and
+   legacy process artifacts.
+3. Extract candidate requirements with stakeholder, source, objective,
+   rationale, priority, assumptions, risks, dependencies, and confidence.
+4. Normalize requirements so they are singular, testable, traceable, and not
+   confused with design decisions or implementation tasks.
+5. Add acceptance criteria or validation methods.
+6. Flag conflicts, duplicates, missing requirement types, and open questions.
+
+Use it when the main risk is building from unclear needs, unsupported
+stakeholder requests, or requirements with weak traceability.
+
 ### `business-rules-extraction`
 
 `business-rules-extraction` turns messy source material into a structured rule
@@ -329,27 +246,6 @@ Outcomes:
 - request more information
 ```
 
-### `business-requirements-extraction`
-
-`business-requirements-extraction` turns messy stakeholder, product, and
-operational evidence into a structured requirements catalog.
-
-The workflow is:
-
-1. Define scope, intended use, current state, future state, and constraints.
-2. Inventory source evidence such as interviews, workshops, tickets, specs,
-   strategy docs, workflows, feedback, analytics, code-adjacent evidence, and
-   legacy process artifacts.
-3. Extract candidate requirements with stakeholder, source, objective,
-   rationale, priority, assumptions, risks, dependencies, and confidence.
-4. Normalize requirements so they are singular, testable, traceable, and not
-   confused with design decisions or implementation tasks.
-5. Add acceptance criteria or validation methods.
-6. Flag conflicts, duplicates, missing requirement types, and open questions.
-
-Use it when the main risk is building from unclear needs, unsupported
-stakeholder requests, or requirements with weak traceability.
-
 ## Common Prompts
 
 ### `think`
@@ -390,6 +286,14 @@ stakeholder requests, or requirements with weak traceability.
 - "Push back on my reasoning and make me defend a recommendation"
 - "Help me improve how I think through this, not just solve it for me"
 
+### `business-requirements-extraction`
+
+- "Extract the business requirements from these interview notes"
+- "Turn this discovery transcript into a requirements catalog"
+- "Audit these tickets for missing acceptance criteria and traceability"
+- "Extract stakeholder, solution, and transition requirements from this migration plan"
+- "Separate requirements from designs, tasks, assumptions, and business rules"
+
 ### `business-rules-extraction`
 
 - "Extract the business rules from this billing module"
@@ -405,14 +309,6 @@ stakeholder requests, or requirements with weak traceability.
 - "Find the inputs, outcomes, and rules for each operational decision"
 - "Model how these eligibility rules produce approve, review, or reject outcomes"
 - "Group these business rules by the operational decisions they support"
-
-### `business-requirements-extraction`
-
-- "Extract the business requirements from these interview notes"
-- "Turn this discovery transcript into a requirements catalog"
-- "Audit these tickets for missing acceptance criteria and traceability"
-- "Extract stakeholder, solution, and transition requirements from this migration plan"
-- "Separate requirements from designs, tasks, assumptions, and business rules"
 
 ## License
 

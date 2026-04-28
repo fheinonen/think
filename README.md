@@ -12,6 +12,8 @@ This repository contains local skills for structured reasoning and coaching:
   stakeholder, solution, transition, and constraint requirements
 - `business-rules-extraction` for extracting auditable business rules from
   code, specs, policies, workflows, tickets, data, or conversations
+- `business-decision-discovery` for discovering operational business decisions,
+  input data, outcomes, decision tables, and validation scenarios
 
 They solve adjacent but different stages of the same general problem. `think`
 is for getting your thoughts out and organized. `decision-system` is for
@@ -22,7 +24,10 @@ an engineer reasons through a recommendation, not just the quality of the
 analysis itself. `business-requirements-extraction` is for turning messy
 stakeholder and product evidence into traceable requirements.
 `business-rules-extraction` is for turning operational or implementation
-evidence into explicit, source-backed rules.
+evidence into explicit, source-backed rules. `business-decision-discovery` is
+for grouping requirements and rules around the business decisions they support:
+the question being answered, the input data needed, the possible outcomes, the
+decision logic, and the validation scenarios.
 
 ## Install
 
@@ -31,6 +36,16 @@ npx skills add fheinonen/think
 ```
 
 ## Which Skill To Use
+
+### Requirements, Rules, And Decisions
+
+| Thing | Question It Answers | Example |
+|---|---|---|
+| Requirement | What does the business need? | Prevent unauthorized payments |
+| Rule | What policy or constraint applies? | Invoices over EUR 5,000 need approval |
+| Decision | What outcome must be chosen? | Should this invoice be approved, reviewed, or rejected? |
+| Decision table | How is the outcome chosen? | If amount > EUR 5,000, route to manager |
+| Test scenario | How do we verify it? | Invoice EUR 5,001 routes to manager |
 
 ### Use `think` when
 
@@ -74,6 +89,19 @@ npx skills add fheinonen/think
 - you need to separate explicit rules from inferred behavior, contradictions,
   exceptions, and open validation questions
 - you want rules that can drive implementation, QA, migration, audit, or
+  stakeholder review
+
+### Use `business-decision-discovery` when
+
+- you need to discover the business decisions that requirements and rules
+  support
+- you want to group rules around decision questions such as approval route,
+  eligibility, pricing, classification, routing, assignment, or calculation
+- you need to identify input data, possible outcomes, default behavior, and
+  exception paths
+- you want decision tables or ordered logic that show how rules and data produce
+  outcomes
+- you want validation scenarios that can drive QA, workflow automation, or
   stakeholder review
 
 ### Use `business-requirements-extraction` when
@@ -232,6 +260,54 @@ The workflow is:
 Use it when the main risk is losing, misreading, or over-trusting domain logic
 that lives across implementation details and human process.
 
+### `business-decision-discovery`
+
+`business-decision-discovery` turns requirements and rules into operational
+decision models.
+
+The workflow is:
+
+1. Define the source material and intended use.
+2. Find candidate decisions where the business chooses an outcome.
+3. Name each decision as a business question or outcome selection.
+4. Identify possible outcomes and required input data.
+5. Link supporting rules to each decision.
+6. Model the logic with a decision table, ordered rule list, formula, state
+   transition table, or compact pseudocode.
+7. Flag missing inputs, missing defaults, unclear precedence, overlapping rules,
+   contradictions, and unhandled cases.
+8. Generate validation scenarios for normal, boundary, exception, conflict, and
+   default cases.
+
+Use it when a rule catalog is useful but still does not show how the business
+actually chooses an outcome.
+
+Example:
+
+```text
+Requirement:
+Prevent unauthorized invoice payments.
+
+Rules:
+- Invoices over EUR 5,000 require manager approval.
+- High-risk suppliers require finance review.
+- Invoices without a valid tax ID cannot be paid.
+
+Decision:
+Determine invoice approval route.
+
+Inputs:
+- invoice amount
+- supplier risk
+- tax ID validity
+
+Outcomes:
+- auto-approve
+- manager approval
+- finance review
+- reject
+```
+
 ### `business-requirements-extraction`
 
 `business-requirements-extraction` turns messy stakeholder, product, and
@@ -300,6 +376,14 @@ stakeholder requests, or requirements with weak traceability.
 - "Audit this workflow and produce a rule catalog with contradictions"
 - "Turn these policy notes into testable business rules"
 - "Find the validation, authorization, and calculation rules in this codebase"
+
+### `business-decision-discovery`
+
+- "Discover the business decisions supported by these invoice rules"
+- "Turn this rule catalog into decision tables and validation scenarios"
+- "Find the inputs, outcomes, and rules for each approval decision"
+- "Model how these eligibility rules produce approve, review, or reject outcomes"
+- "Group these business rules by the operational decisions they support"
 
 ### `business-requirements-extraction`
 

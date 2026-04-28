@@ -125,23 +125,6 @@ the objective, doing nothing, or rejecting the original premise.
 Decision-system sessions can be saved, listed, continued, and reviewed. They
 are stored separately in `~/.thinking-sessions/decision-system/`.
 
-The method is anchored in established decision practices:
-
-- Decision Quality: appropriate frame, creative alternatives, reliable
-  information, clear values and tradeoffs, sound reasoning, and commitment to
-  action
-- Kepner-Tregoe Decision Analysis: must-have constraints, weighted wants,
-  alternative comparison, and risk evaluation
-- WRAP: widen options, reality-test assumptions, attain distance, and prepare
-  to be wrong
-- OODA and Cynefin: orient to context and adapt the decision style to clear,
-  complicated, complex, chaotic, or confused situations
-- RAPID and DACI: clarify decision ownership and stakeholder roles
-- Premortem thinking: imagine failure before committing
-- One-way/two-way door thinking: scale rigor to reversibility
-- Decision journaling: record reasoning so decision quality can be reviewed
-  separately from outcome quality
-
 ### `engineering-judgment-coaching`
 
 `engineering-judgment-coaching` helps an engineer improve how they reason.

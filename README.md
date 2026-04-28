@@ -29,15 +29,7 @@ for grouping requirements and rules around the business decisions they support:
 the question being answered, the input data needed, the possible outcomes, the
 decision logic, and the validation scenarios.
 
-## Install
-
-```bash
-npx skills add fheinonen/think
-```
-
-## Which Skill To Use
-
-### Requirements, Rules, And Decisions
+## Requirements, Rules, And Decisions
 
 | Thing | Question It Answers | Example |
 |---|---|---|
@@ -46,6 +38,14 @@ npx skills add fheinonen/think
 | Decision | What outcome must be chosen? | Should this request be self-served, handled normally, escalated, or reviewed? |
 | Decision table | How is the outcome chosen? | If account is suspended, route to account review |
 | Test scenario | How do we verify it? | Suspended account request routes to account review |
+
+## Install
+
+```bash
+npx skills add fheinonen/think
+```
+
+## Which Skill To Use
 
 ### Use `think` when
 

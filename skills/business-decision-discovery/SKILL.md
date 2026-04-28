@@ -40,21 +40,22 @@ Example:
 
 ```text
 Requirement:
-Prevent unauthorized invoice payments.
+Route customer requests to the right handling path.
 
 Decision:
-Determine invoice approval route.
+Determine request handling route.
 
 Data:
-Invoice amount, supplier risk, tax ID status, budget status.
+Request type, customer tier, account status, urgency, required documents.
 
 Rules:
-- If invoice > EUR 5,000, manager approval is required.
-- If supplier is high-risk, finance review is required.
-- If tax ID is missing, invoice cannot proceed.
+- If required documents are missing, request more information.
+- If the account is suspended, route to account review.
+- If urgency is high, escalate to priority handling.
 
 Outcome:
-Auto-approve, manager approval, finance review, or reject.
+Self-service, standard handling, priority handling, account review, or request
+more information.
 ```
 
 ## Grounding
@@ -77,7 +78,7 @@ Look for decisions where the business chooses an outcome:
 - **Routing:** send to a team, queue, workflow, channel, or reviewer
 - **Eligibility:** eligible, ineligible, conditionally eligible, exception
 - **Classification:** assign category, risk band, segment, tier, or status
-- **Pricing:** choose price, discount, fee, rate, tax treatment, or adjustment
+- **Commercial terms:** choose plan, tier, rate, adjustment, or entitlement
 - **Prioritization:** rank, schedule, expedite, defer, or deprioritize
 - **Calculation:** compute score, amount, date, allocation, or entitlement
 - **Assignment:** assign owner, approver, responsibility, territory, or account
@@ -112,13 +113,13 @@ Search source material for places where an outcome is chosen. Common signals:
 
 Name each decision as a clear business question or outcome selection:
 
-- "Determine invoice approval route"
-- "Is the customer eligible for renewal discount?"
-- "Calculate claim payout amount"
+- "Select customer request handling route"
+- "Is the user eligible for self-service access?"
+- "Calculate service priority score"
 - "Select onboarding review path"
 
-Avoid naming a decision as a rule. "Invoices over EUR 5,000 require manager
-approval" is a rule. "Determine invoice approval route" is the decision.
+Avoid naming a decision as a rule. "Suspended accounts require account review"
+is a rule. "Determine request handling route" is the decision.
 
 ### 3. Identify Outcomes
 
@@ -136,8 +137,8 @@ If the default or precedence is unclear, record it as a gap instead of guessing.
 
 Capture the facts needed to make the decision:
 
-- amounts, dates, statuses, categories, roles, jurisdictions, products
-- customer, supplier, account, invoice, order, claim, user, or case attributes
+- quantities, dates, statuses, categories, roles, regions, products, channels
+- customer, account, order, case, request, asset, user, or partner attributes
 - risk scores, historical behavior, budgets, limits, entitlements
 - validation results, external checks, source-of-truth systems
 

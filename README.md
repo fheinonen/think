@@ -41,11 +41,11 @@ npx skills add fheinonen/think
 
 | Thing | Question It Answers | Example |
 |---|---|---|
-| Requirement | What does the business need? | Prevent unauthorized payments |
-| Rule | What policy or constraint applies? | Invoices over EUR 5,000 need approval |
-| Decision | What outcome must be chosen? | Should this invoice be approved, reviewed, or rejected? |
-| Decision table | How is the outcome chosen? | If amount > EUR 5,000, route to manager |
-| Test scenario | How do we verify it? | Invoice EUR 5,001 routes to manager |
+| Requirement | What does the business need? | Route customer requests correctly |
+| Rule | What policy or constraint applies? | Suspended accounts require account review |
+| Decision | What outcome must be chosen? | Should this request be self-served, handled normally, escalated, or reviewed? |
+| Decision table | How is the outcome chosen? | If account is suspended, route to account review |
+| Test scenario | How do we verify it? | Suspended account request routes to account review |
 
 ### Use `think` when
 
@@ -286,26 +286,28 @@ Example:
 
 ```text
 Requirement:
-Prevent unauthorized invoice payments.
+Route customer requests to the right handling path.
 
 Rules:
-- Invoices over EUR 5,000 require manager approval.
-- High-risk suppliers require finance review.
-- Invoices without a valid tax ID cannot be paid.
+- Requests with missing required documents need more information.
+- Suspended accounts require account review.
+- High-urgency requests require priority handling.
 
 Decision:
-Determine invoice approval route.
+Determine request handling route.
 
 Inputs:
-- invoice amount
-- supplier risk
-- tax ID validity
+- request type
+- account status
+- urgency
+- document completeness
 
 Outcomes:
-- auto-approve
-- manager approval
-- finance review
-- reject
+- self-service
+- standard handling
+- priority handling
+- account review
+- request more information
 ```
 
 ### `business-requirements-extraction`
@@ -379,9 +381,9 @@ stakeholder requests, or requirements with weak traceability.
 
 ### `business-decision-discovery`
 
-- "Discover the business decisions supported by these invoice rules"
+- "Discover the business decisions supported by these routing rules"
 - "Turn this rule catalog into decision tables and validation scenarios"
-- "Find the inputs, outcomes, and rules for each approval decision"
+- "Find the inputs, outcomes, and rules for each operational decision"
 - "Model how these eligibility rules produce approve, review, or reject outcomes"
 - "Group these business rules by the operational decisions they support"
 

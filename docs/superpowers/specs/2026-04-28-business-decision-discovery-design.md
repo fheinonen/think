@@ -32,21 +32,22 @@ Example:
 
 ```text
 Requirement:
-Prevent unauthorized invoice payments.
+Route customer requests to the right handling path.
 
 Decision:
-Determine invoice approval route.
+Determine request handling route.
 
 Data:
-Invoice amount, supplier risk, tax ID status, budget status.
+Request type, customer tier, account status, urgency, required documents.
 
 Rules:
-- If invoice > EUR 5,000, manager approval is required.
-- If supplier is high-risk, finance review is required.
-- If tax ID is missing, invoice cannot proceed.
+- If required documents are missing, request more information.
+- If the account is suspended, route to account review.
+- If urgency is high, escalate to priority handling.
 
 Outcome:
-Auto-approve, manager approval, finance review, or reject.
+Self-service, standard handling, priority handling, account review, or request
+more information.
 ```
 
 ## Scope
@@ -96,15 +97,15 @@ The skill should run this flow:
 1. **Scope the source material.** Identify the business domain, source material,
    and intended use. If no source material is provided, ask for it.
 2. **Find candidate decisions.** Look for places where the business chooses an
-   outcome: approve/reject, route/escalate, price/discount, eligible/ineligible,
+   outcome: approve/reject, route/escalate, assign tier, eligible/ineligible,
    classify, prioritize, calculate, assign, notify, block, or permit.
 3. **Name each decision as a question.** Prefer clear phrases such as
-   "Determine invoice approval route" or "Is the customer eligible for renewal
-   discount?"
+   "Determine request handling route" or "Is the user eligible for self-service
+   access?"
 4. **Identify possible outcomes.** Capture the finite outcomes the decision can
    produce, including default and exception outcomes.
 5. **Identify required input data.** Capture the facts needed to make the
-   decision: amount, status, risk score, customer type, date, jurisdiction,
+   decision: status, risk score, request type, date, region,
    account state, product type, history, or other data.
 6. **Link supporting rules.** Group extracted or inferred business rules under
    the decisions they support. Preserve rule IDs when available. Create local
@@ -207,5 +208,5 @@ Follow the style of existing skills in this repository. A single `SKILL.md`
 file should be enough. The frontmatter description must trigger on terms like
 discover business decisions, decision tables, decision logic, input data,
 outcomes, group rules by decision, operational decision, approval route,
-eligibility decision, routing decision, pricing decision, and validation
+eligibility decision, routing decision, classification decision, and validation
 scenarios.

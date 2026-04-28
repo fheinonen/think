@@ -21,15 +21,11 @@ deciding what to do after challenging whether the stated premise is even the
 right one. `systemic-thinking` is for disciplined analysis once the problem
 needs a more formal model. `engineering-judgment-coaching` is for improving how
 an engineer reasons through a recommendation, not just the quality of the
-analysis itself. `business-requirements-extraction` is for turning messy
-stakeholder and product evidence into traceable requirements.
-`business-rules-extraction` is for turning operational or implementation
-evidence into explicit, source-backed rules. `business-decision-discovery` is
-for grouping requirements and rules around the business decisions they support:
-the question being answered, the input data needed, the possible outcomes, the
-decision logic, and the validation scenarios.
+analysis itself.
 
-## Requirements, Rules, And Decisions
+## Business Analysis Model
+
+The business-focused skills form a simple layer model:
 
 | Thing | Question It Answers | Example |
 |---|---|---|
@@ -38,6 +34,14 @@ decision logic, and the validation scenarios.
 | Decision | What outcome must be chosen? | Should this request be self-served, handled normally, escalated, or reviewed? |
 | Decision table | How is the outcome chosen? | If account is suspended, route to account review |
 | Test scenario | How do we verify it? | Suspended account request routes to account review |
+
+- `business-requirements-extraction` discovers the need, scope, stakeholders,
+  constraints, and acceptance criteria.
+- `business-rules-extraction` discovers policies, validations, calculations,
+  exceptions, and other explicit constraints.
+- `business-decision-discovery` discovers the operational decisions that rules
+  and requirements support, including the inputs, outcomes, decision logic, and
+  validation scenarios.
 
 ## Install
 

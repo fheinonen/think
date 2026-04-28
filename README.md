@@ -2,26 +2,41 @@
 
 This repository contains local skills for structured reasoning and coaching:
 
+## Skill Families
+
+### Thought Structuring
+
 - `think` for turning a messy thought dump into a usable breakdown
+
+### Systems Analysis
+
+- `systemic-thinking` for analyzing a complex problem with explicit structure
+
+### Decision Work
+
 - `decision-system` for challenging a decision premise, stabilizing the frame,
   making a recommendation, and optionally producing a decision memo
-- `systemic-thinking` for analyzing a complex problem with explicit structure
 - `engineering-judgment-coaching` for helping an engineer strengthen their
   reasoning and recommendation quality through guided coaching
-- `business-requirements-extraction` for extracting traceable business,
-  stakeholder, solution, transition, and constraint requirements
-- `business-rules-extraction` for extracting auditable business rules from
-  code, specs, policies, workflows, tickets, data, or conversations
-- `business-decision-discovery` for discovering operational business decisions,
-  input data, outcomes, decision tables, and validation scenarios
+
+### Business Analysis
+
+| Layer | Skill | What It Does |
+|---|---|---|
+| Requirement | `business-requirements-extraction` | Extracts traceable business, stakeholder, solution, transition, and constraint requirements |
+| Rule | `business-rules-extraction` | Extracts auditable business rules from code, specs, policies, workflows, tickets, data, or conversations |
+| Decision | `business-decision-discovery` | Discovers operational business decisions, input data, outcomes, decision tables, and validation scenarios |
 
 They solve adjacent but different stages of the same general problem. `think`
-is for getting your thoughts out and organized. `decision-system` is for
-deciding what to do after challenging whether the stated premise is even the
-right one. `systemic-thinking` is for disciplined analysis once the problem
-needs a more formal model. `engineering-judgment-coaching` is for improving how
-an engineer reasons through a recommendation, not just the quality of the
-analysis itself.
+is for getting your thoughts out and organized. `systemic-thinking` is for
+disciplined analysis once the problem needs a more formal model.
+`decision-system` is for deciding what to do after challenging whether the
+stated premise is even the right one. `engineering-judgment-coaching` is for
+improving how an engineer reasons through a recommendation, not just the
+quality of the analysis itself. The business-analysis skills form a layer
+model: requirements describe the need, rules describe the constraint, and
+decision discovery groups them into the operational question, the inputs, the
+outcomes, and the validation logic.
 
 ## Business Analysis Model
 

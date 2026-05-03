@@ -299,6 +299,16 @@ Outcomes:
 - "Open the migration analysis session and show me the current model"
 - "Mark the migration analysis session as resolved"
 
+### `model-building`
+
+- "Model why our product activation is weak. I want to understand the variables, feedback loops, and levers we can test"
+- "Build a conceptual model of how our team gets blocked. Separate fixed constraints from things we can actually change"
+- "Model this codebase onboarding problem as a system. What parameters affect how quickly a new developer becomes productive?"
+- "Model my procrastination pattern. I want to understand what parameters make avoidance more or less likely"
+- "Build a model of how my attention works during deep work. Identify the feedback loops, constraints, and intervention points"
+- "Here is my current model of how this works: <model>. Stress-test it and show what it hides, what it predicts, and what would falsify it"
+- "Turn this explanation into a control surface: variables, parameters, levers, risks, and small tests"
+
 ### `decision-system`
 
 - "Help me decide whether to rebuild this dashboard"

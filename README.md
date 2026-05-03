@@ -8,6 +8,7 @@ This repository contains local skills for structured reasoning and coaching:
 |---|---|---|
 | Thought structuring | `think` | Turning a messy thought dump into a usable breakdown |
 | Systems analysis | `systemic-thinking` | Analyzing a complex problem with explicit structure |
+| Systems analysis | `model-building` | Turning a system or pattern into a manipulable conceptual model with parameters, levers, and tests |
 | Decision work | `decision-system` | Stress-testing a decision frame and making a recommendation |
 | Decision work | `engineering-judgment-coaching` | Improving the reasoning behind an engineering recommendation |
 | Action coaching | `action-activation` | Converting stuckness into a low-stakes, reversible next action |
@@ -97,6 +98,30 @@ They are stored separately in `~/.thinking-sessions/systemic-thinking/`.
 
 When continuing a saved session, the skill first lets you inspect the existing
 analysis as-is, then revise it only if you add new context or request changes.
+
+### `model-building`
+
+`model-building` is for understanding a system or recurring pattern well enough
+to see what can be observed, changed, tested, or left alone.
+
+The skill turns a vague phenomenon into an explicit conceptual model:
+
+1. Define the modeling purpose and boundary.
+2. Extract the current mental model.
+3. Map components, states, variables, parameters, constraints, flows, and
+   feedback loops.
+4. Separate fixed factors from directly changeable, indirectly influenceable,
+   emergent, and unknown parameters.
+5. Identify shallow and deep leverage points: numbers, buffers, information
+   flows, rules, goals, incentives, identity, and paradigms.
+6. Stress-test the model against blind spots, weak causal links, competing
+   explanations, and backfire risks.
+7. Convert the model into small experiments or observations that would update
+   the model.
+
+Use it for external systems like products, businesses, teams, markets,
+workflows, and codebases, or internal systems like attention, habits,
+motivation, avoidance, learning, and decision behavior.
 
 ### `decision-system`
 

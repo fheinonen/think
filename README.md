@@ -10,6 +10,7 @@ This repository contains local skills for structured reasoning and coaching:
 | Systems analysis | `systemic-thinking` | Analyzing a complex problem with explicit structure |
 | Decision work | `decision-system` | Stress-testing a decision frame and making a recommendation |
 | Decision work | `engineering-judgment-coaching` | Improving the reasoning behind an engineering recommendation |
+| Action coaching | `action-activation` | Converting stuckness into a low-stakes, reversible next action |
 | Business analysis | `business-requirements-extraction` | Extracting traceable business, stakeholder, solution, transition, and constraint requirements |
 | Business analysis | `business-rules-extraction` | Extracting auditable policies, constraints, calculations, validations, and exceptions |
 | Business analysis | `business-decision-discovery` | Discovering operational decisions, inputs, outcomes, decision tables, and validation scenarios |
@@ -136,6 +137,28 @@ The workflow is:
 3. Revise the reasoning.
 4. Defend a clearer recommendation.
 5. End with one coaching takeaway for next time.
+
+### `action-activation`
+
+`action-activation` helps turn circling, hesitation, or avoidance into a small
+concrete action when the user wants momentum or accountability.
+
+The workflow is:
+
+1. Clarify the target behavior.
+2. Diagnose whether the blocker is capability, opportunity, motivation, or a
+   real constraint.
+3. Infer the avoidance pattern tentatively, without diagnosing personality.
+4. Preserve agency by reflecting the user's own reason for acting.
+5. Reduce the action until it is observable, time-bounded, and reversible.
+6. Bound the risk with evidence, reversibility, recovery plans, and cost of
+   inaction.
+7. Convert the action into a commitment with an if-then plan.
+8. Escalate pressure only if the user repeatedly avoids a concrete reversible
+   step.
+
+Use it for low-stakes action pressure, not therapy, coercion, high-stakes
+decisions, or situations where hesitation is valid caution.
 
 ### `business-requirements-extraction`
 
@@ -268,6 +291,14 @@ Outcomes:
 - "Critique my reasoning and help me strengthen it before giving me the answer"
 - "Push back on my reasoning and make me defend a recommendation"
 - "Help me improve how I think through this, not just solve it for me"
+
+### `action-activation`
+
+- "Help me stop overthinking and pick the smallest real next step"
+- "I know what I should do but I keep avoiding it"
+- "Turn this intention into a concrete action I can do today"
+- "Pressure-test whether this is a real constraint or avoidance"
+- "Help me make a reversible commitment and follow through"
 
 ### `business-requirements-extraction`
 

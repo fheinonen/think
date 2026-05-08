@@ -28,6 +28,24 @@ The business-focused skills form a simple layer model:
 | Decision table | How is the outcome chosen? | If account is suspended, route to account review |
 | Test scenario | How do we verify it? | Suspended account request routes to account review |
 
+## HTML Artifacts
+
+Several skills can turn their structured output into standalone HTML artifacts
+when asked for a shareable or reviewable version. These files are intended for
+stakeholder review, workshops, printing, or preserving a model outside the chat.
+
+The generated HTML should be self-contained where practical, readable without a
+build step, and structured around the skill's native output rather than a generic
+report format. Examples include model-building control surfaces, decision memos,
+requirements packages, rule catalogs, decision models, and systemic-thinking
+analysis artifacts.
+
+Ask for it directly:
+
+```text
+Create a standalone HTML artifact from this.
+```
+
 ## Install
 
 ```bash
@@ -308,6 +326,7 @@ Outcomes:
 - "Build a model of how my attention works during deep work. Identify the feedback loops, constraints, and intervention points"
 - "Here is my current model of how this works: <model>. Stress-test it and show what it hides, what it predicts, and what would falsify it"
 - "Turn this explanation into a control surface: variables, parameters, levers, risks, and small tests"
+- "Create a standalone HTML artifact from this model"
 
 ### `decision-system`
 
@@ -316,6 +335,7 @@ Outcomes:
 - "Use the decision system on this hiring decision"
 - "Should we do this now, defer it, or change the objective?"
 - "Turn this into a decision memo after making the recommendation"
+- "Create a standalone HTML decision memo for review"
 - "List my saved decisions"
 - "Continue the dashboard decision"
 - "Review the dashboard decision outcome"
@@ -339,6 +359,7 @@ Outcomes:
 
 - "Extract the business requirements from these interview notes"
 - "Turn this discovery transcript into a requirements catalog"
+- "Create a standalone HTML requirements package for stakeholders"
 - "Audit these tickets for missing acceptance criteria and traceability"
 - "Extract stakeholder, solution, and transition requirements from this migration plan"
 - "Separate requirements from designs, tasks, assumptions, and business rules"
@@ -347,6 +368,7 @@ Outcomes:
 
 - "Extract the business rules from this billing module"
 - "Reverse-engineer the eligibility rules from these tickets and specs"
+- "Create a standalone HTML rule catalog with sources and confidence"
 - "Audit this workflow and produce a rule catalog with contradictions"
 - "Turn these policy notes into testable business rules"
 - "Find the validation, authorization, and calculation rules in this codebase"
@@ -355,6 +377,7 @@ Outcomes:
 
 - "Discover the business decisions supported by these routing rules"
 - "Turn this rule catalog into decision tables and validation scenarios"
+- "Create a standalone HTML decision model from these rules"
 - "Find the inputs, outcomes, and rules for each operational decision"
 - "Model how these eligibility rules produce approve, review, or reject outcomes"
 - "Group these business rules by the operational decisions they support"

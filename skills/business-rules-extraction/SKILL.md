@@ -214,6 +214,31 @@ Default to a rule catalog:
 Use decision tables for branching logic, state transition tables for workflows,
 and formulas for calculations when those representations are clearer than prose.
 
+## Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. If no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-business-rules.html`.
+
+The HTML artifact should:
+
+- present an executive summary, scope, source inventory, definitions, rule
+  catalog, decision logic, contradictions, open questions, and validation plan
+- make rule kind, tags, applies-when scope, exceptions, source, confidence, and
+  validation status visually scannable
+- highlight inferred rules, low-confidence rules, contradictions, missing
+  exceptions, unclear owners, and validation gaps
+- preserve all rule IDs, source references, exceptions, confidence labels,
+  contradictions, and open questions from the Markdown output
+- include a generated date, reviewed sources, intended use, and exclusions
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to turn inferred implementation behavior into
+certain business policy, or to hide contradictions and unresolved questions.
+
 ## Quality Bar
 
 A good extraction is:

@@ -5,6 +5,7 @@
 .mcp.json
 executor.jsonc
 skills-lock.json
+docs/
 
 # OS / editor noise
 .DS_Store

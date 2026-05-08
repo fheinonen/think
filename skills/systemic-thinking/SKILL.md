@@ -203,6 +203,35 @@ tags: [systems, analysis, planning]
 
 Tell the user: "Session saved to `~/.thinking-sessions/systemic-thinking/<filename>`."
 
+### Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. For saved sessions, place it next
+to the Markdown file as
+`~/.thinking-sessions/systemic-thinking/YYYY-MM-DD-<slug>.html`. If no saved
+session exists and no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-systemic-thinking.html`.
+
+The HTML artifact should:
+
+- preserve the full A-L analysis structure
+- include a concise top summary with problem framing, strongest synthesis,
+  major uncertainties, and recommended next steps
+- make ontological, epistemic, morphological, MECE, semiotic, eliminated,
+  plausible, and uncertain sections visually distinct
+- visually label known, assumed, inferred, unknown, uncertain, and contested
+  claims where the analysis uses those categories
+- preserve all caveats, open questions, eliminations, and uncertainty labels
+  from the Markdown output
+- include generated date, title, tags, status, and problem context when known
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to make speculative models look settled or to
+remove uncertainty for presentation polish.
+
 ## Instructions
 
 When this skill is invoked, analyze the user's problem with the following

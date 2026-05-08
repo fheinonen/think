@@ -200,6 +200,35 @@ review: <YYYY-MM-DD or null>
 Tell the user: "Decision saved to
 `~/.thinking-sessions/decision-system/<filename>`."
 
+#### 8. Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. For saved decisions, place it next
+to the Markdown file as
+`~/.thinking-sessions/decision-system/YYYY-MM-DD-<slug>.html`. If no saved
+decision exists and no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-decision.html`.
+
+The HTML artifact should:
+
+- present a decision summary, original premise, premise challenge, criteria,
+  roles, assumptions, options, evaluation, rejected alternatives,
+  recommendation, risks, premortem, confidence, reversibility, change triggers,
+  next action, and review date
+- make must-have criteria, weighted wants, option tradeoffs, confidence,
+  reversibility, risks, mitigations, and decision triggers visually scannable
+- preserve all assumptions, unknowns, rejected alternatives, risks, caveats,
+  confidence labels, and review triggers from the Markdown memo
+- include generated date, decision owner or roles, status, and review date when
+  known
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to oversell the recommendation, hide uncertainty,
+or remove serious rejected alternatives.
+
 ### List Decisions
 
 List `.md` files in `~/.thinking-sessions/decision-system/` whose frontmatter

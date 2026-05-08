@@ -242,6 +242,33 @@ This system appears to work like <model>. The most important variables are
 is <uncertainty>. The next best test is <test>.
 ```
 
+## Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. If no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-model.html`.
+
+The HTML artifact should:
+
+- present the model purpose, current mental model, system boundary, components
+  and dynamics, parameters and levers, feedback loops, weaknesses, competing
+  models, intervention hypotheses, model tests, and updated working model
+- make variables, parameters, constraints, levers, feedback loops, assumptions,
+  confidence, and tests visually scannable
+- distinguish fixed factors, directly changeable parameters, indirectly
+  influenceable parameters, emergent behavior, unknowns, and deep leverage
+  points when those categories are used
+- preserve all model weaknesses, competing explanations, backfire risks,
+  uncertainty labels, and proposed tests from the Markdown output
+- include generated date, modeling purpose, boundary, and intended use
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to make the model look more certain, complete, or
+actionable than the evidence supports.
+
 ## Common Mistakes
 
 - Confusing a description of parts with a model of dynamics

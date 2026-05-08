@@ -265,6 +265,30 @@ When the source material contains many decisions, keep the decision catalog
 complete and provide detailed logic only for decisions with enough evidence or
 high importance.
 
+## Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. If no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-decision-discovery.html`.
+
+The HTML artifact should:
+
+- present an executive summary, decision catalog, decision details,
+  cross-decision issues, and validation scenarios
+- make decision tables easy to scan with sticky or repeated headers when useful
+- visually distinguish inputs, outcomes, rules, gaps, conflicts, confidence,
+  defaults, and validation coverage
+- preserve all source references, rule IDs, requirement IDs, confidence labels,
+  gaps, conflicts, and uncertainty from the Markdown output
+- include a generated date, scope, intended use, and exclusions
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to add new claims, hide low-confidence decisions,
+or make unresolved precedence and default behavior look resolved.
+
 ## Quality Bar
 
 A good discovery output is:

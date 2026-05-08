@@ -204,6 +204,34 @@ Default to a requirements catalog:
 Use a story map, journey map, context diagram, process model, or data model only
 when it clarifies requirements that would otherwise be hard to understand.
 
+## Shareable HTML Artifact
+
+If the user asks for a shareable, reviewable, exportable, or HTML artifact,
+create a single self-contained `.html` file. If no path is provided, use
+`./artifacts/YYYY-MM-DD-<slug>-business-requirements.html`.
+
+The HTML artifact should:
+
+- present an executive summary, scope, source inventory, stakeholders,
+  objectives, requirements catalog, acceptance criteria, traceability,
+  conflicts, risks, dependencies, and open questions
+- make requirement type, priority, source, confidence, validation method, and
+  traceability visually scannable
+- highlight unsupported requirements, unknown priorities, missing validation,
+  conflicts, duplicates, and stakeholder validation needs
+- preserve all requirement IDs, source references, assumptions, risks,
+  dependencies, confidence labels, and open questions from the Markdown output
+- include a generated date, intended use, current state, future state, and
+  exclusions when known
+- be print-friendly and readable when shared as a standalone file
+- use inline CSS only, no external assets, no remote fonts, and no JavaScript
+  unless the user explicitly asks for interactivity
+- escape source text and user-provided content before inserting it into HTML
+
+Do not use the HTML artifact to make requirements look final when they still
+need stakeholder validation, or to invent priority, acceptance criteria, or
+traceability.
+
 ## Quality Bar
 
 A good extraction is:

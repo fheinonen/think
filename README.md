@@ -1,7 +1,8 @@
 # Think
 
 This repository contains local skills for structured thinking across reasoning,
-decision work, business analysis, and project delivery control.
+decision work, expertise distillation, business analysis, and project delivery
+control.
 
 ## How To Use These Skills
 
@@ -61,6 +62,7 @@ npx skills add fheinonen/think
 | Decision work | `decision-system` | Stress-testing a decision frame and making a recommendation |
 | Decision work | `engineering-judgment-coaching` | Improving the reasoning behind an engineering recommendation |
 | Action coaching | `action-activation` | Converting stuckness into a low-stakes, reversible next action |
+| Expertise distillation | `person-skill-distillation` | Distilling a person's expertise, taste, judgment, and tacit know-how into reusable principles, rubrics, training material, or AI skill instructions |
 | Business analysis | `business-requirements-extraction` | Extracting traceable business, stakeholder, solution, transition, and constraint requirements |
 | Business analysis | `business-rules-extraction` | Extracting auditable policies, constraints, calculations, validations, and exceptions |
 | Business analysis | `business-decision-discovery` | Discovering operational decisions, inputs, outcomes, decision tables, and validation scenarios |
@@ -103,6 +105,18 @@ The project-management skills form a simple delivery-control model:
 The flow is usually: clarify the situation, review delivery risk, then
 communicate the right facts, decisions, and asks to the right stakeholders.
 
+## Expertise Distillation Model
+
+The expertise-distillation skill turns a person's tacit skill into transferable
+operating knowledge:
+
+| Thing | Question It Answers | Example |
+|---|---|---|
+| Performance surface | What specific skill are we trying to capture? | How a founder evaluates early B2B SaaS feature ideas before build |
+| Evidence base | What artifacts, incidents, and contrasts support the distillation? | Interviews, shipped work, corrections, excellent examples, failed examples |
+| Skill stack | What does the person notice, decide, sequence, avoid, and improve? | They notice weak demand signals before discussing implementation details |
+| Transfer material | How can someone else or an AI assistant reuse the skill? | Operating principles, rubrics, drills, prompts, checklists, or skill files |
+
 ## Common Prompts
 
 ### Core Thinking
@@ -120,6 +134,13 @@ communicate the right facts, decisions, and asks to the right stakeholders.
 - "Coach me through this recommendation like a senior engineer mentoring another engineer"
 - "Help me stop overthinking and pick the smallest real next step"
 - "Turn this intention into a concrete action I can do today"
+
+### Expertise Distillation
+
+- "Distill this person's product judgment from these interviews and examples"
+- "Turn this expert's workflow into operating principles and a rubric"
+- "Extract the tacit skill behind these corrections and review comments"
+- "Create an AI skill file from how this person evaluates work"
 
 ### Business Analysis
 

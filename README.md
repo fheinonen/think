@@ -66,6 +66,7 @@ npx skills add fheinonen/think
 | Business analysis | `business-requirements-extraction` | Extracting traceable business, stakeholder, solution, transition, and constraint requirements |
 | Business analysis | `business-rules-extraction` | Extracting auditable policies, constraints, calculations, validations, and exceptions |
 | Business analysis | `business-decision-discovery` | Discovering operational decisions, inputs, outcomes, decision tables, and validation scenarios |
+| Business analysis | `business-process-extraction` | Mapping how work actually flows: triggers, steps, actors, handoffs, systems, exceptions, and pain points |
 | Project management | `project-situation-briefing` | Turning messy project material into a current-state delivery briefing |
 | Project management | `delivery-risk-review` | Finding hidden delivery risks, assumptions, dependencies, decisions, and control gaps |
 | Project management | `stakeholder-update-composer` | Drafting audience-specific project updates, escalations, and decision requests |
@@ -90,6 +91,7 @@ The business-analysis skills form a simple layer model:
 | Rule | What policy or constraint applies? | Suspended accounts require account review |
 | Decision | What outcome must be chosen? | Should this request be self-served, handled normally, escalated, or reviewed? |
 | Decision table | How is the outcome chosen? | If account is suspended, route to account review |
+| Process | How does the work flow from trigger to outcome? | Request received, triaged by support, routed, handled, customer notified |
 | Test scenario | How do we verify it? | Suspended account request routes to account review |
 
 ## Project Management Model
@@ -149,6 +151,8 @@ operating knowledge:
 - "Extract the business rules from this billing module"
 - "Turn these policy notes into testable business rules"
 - "Turn this rule catalog into decision tables and validation scenarios"
+- "Map the current refund process from these tickets and interview notes"
+- "Document how this workflow actually runs, including handoffs and exceptions"
 
 ### Project Management
 
